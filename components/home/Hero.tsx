@@ -80,9 +80,6 @@ export function Hero() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_80%,rgba(201,168,108,0.08)_0%,transparent_55%)]" />
       </motion.div>
 
-      <div className="pointer-events-none absolute inset-6 z-10 border border-brass/20 md:inset-10" />
-      <div className="pointer-events-none absolute inset-8 z-10 border border-brass/10 md:inset-12" />
-
       <motion.div
         style={{ opacity }}
         className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center"
