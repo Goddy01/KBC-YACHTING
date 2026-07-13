@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { siteImages } from "@/data/images";
 import { Ornament } from "@/components/ui/Ornament";
 
@@ -12,6 +12,9 @@ const ease = [0.16, 1, 0.3, 1] as const;
 export function Hero() {
   const t = useTranslations("home");
   const ref = useRef<HTMLElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [reduceMotion, setReduceMotion] = useState(false);
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -20,12 +23,32 @@ export function Hero() {
   const scale = useTransform(scrollYProgress, [0, 1], [1.08, 1.18]);
   const opacity = useTransform(scrollYProgress, [0, 0.75], [1, 0.25]);
 
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setReduceMotion(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || reduceMotion) return;
+    const play = () => {
+      video.play().catch(() => {
+        /* autoplay may be blocked; poster remains */
+      });
+    };
+    play();
+  }, [reduceMotion]);
+
   return (
     <section
       ref={ref}
       className="relative h-[100svh] min-h-[680px] overflow-hidden bg-navy"
     >
       <motion.div style={{ y, scale }} className="absolute inset-0">
+        {/* Poster always underneath for LCP / reduced motion */}
         <Image
           src={siteImages.hero}
           alt=""
@@ -34,6 +57,24 @@ export function Hero() {
           className="img-grade object-cover object-center"
           sizes="100vw"
         />
+
+        {!reduceMotion && (
+          <video
+            ref={videoRef}
+            className="absolute inset-0 h-full w-full object-cover object-center"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster={siteImages.hero}
+            aria-hidden
+          >
+            <source src={siteImages.heroVideoWebm} type="video/webm" />
+            <source src={siteImages.heroVideoMp4} type="video/mp4" />
+          </video>
+        )}
+
         <div className="absolute inset-0 bg-royal-fade" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,rgba(6,14,24,0.55)_100%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_80%,rgba(201,168,108,0.08)_0%,transparent_55%)]" />

@@ -1,5 +1,7 @@
 export const siteImages = {
-  hero: "https://images.unsplash.com/photo-1605281317010-fe5ffe798166?fm=webp&fit=crop&w=2400&q=80",
+  hero: "/images/hero-poster.webp",
+  heroVideoWebm: "/videos/hero.webm",
+  heroVideoMp4: "/videos/hero.mp4",
   categoryYachts:
     "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?fm=webp&fit=crop&w=1400&q=80",
   categoryBoats:
