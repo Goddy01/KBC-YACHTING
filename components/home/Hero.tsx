@@ -19,8 +19,8 @@ export function Hero() {
     target: ref,
     offset: ["start start", "end start"],
   });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "12%"]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.04]);
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "14%"]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1.02, 1.08]);
   const opacity = useTransform(scrollYProgress, [0, 0.75], [1, 0.25]);
 
   useEffect(() => {
@@ -54,14 +54,14 @@ export function Hero() {
           alt=""
           fill
           priority
-          className="img-grade object-contain object-center"
+          className="img-grade object-cover object-center"
           sizes="100vw"
         />
 
         {!reduceMotion && (
           <video
             ref={videoRef}
-            className="absolute inset-0 h-full w-full object-contain object-center"
+            className="absolute inset-0 h-full w-full object-cover object-center"
             autoPlay
             muted
             loop
