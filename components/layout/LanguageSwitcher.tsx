@@ -6,9 +6,10 @@ import { cn } from "@/lib/cn";
 
 type LanguageSwitcherProps = {
   light?: boolean;
+  className?: string;
 };
 
-export function LanguageSwitcher({ light }: LanguageSwitcherProps) {
+export function LanguageSwitcher({ light, className }: LanguageSwitcherProps) {
   const locale = useLocale();
   const pathname = usePathname();
   const router = useRouter();
@@ -20,43 +21,43 @@ export function LanguageSwitcher({ light }: LanguageSwitcherProps) {
 
   return (
     <div
+      role="group"
+      aria-label="Language"
       className={cn(
-        "flex items-center gap-2 text-[11px] uppercase tracking-[0.2em]",
-        light ? "text-cream/70" : "text-navy/50"
+        "inline-flex items-center rounded-sm border p-0.5 text-[11px] uppercase tracking-[0.18em]",
+        light ? "border-brass/50 bg-navy/40 backdrop-blur-sm" : "border-brass/40 bg-cream",
+        className
       )}
     >
       <button
         type="button"
         onClick={() => switchTo("fr")}
         className={cn(
-          "transition-colors duration-300",
+          "min-w-[2.5rem] px-3 py-1.5 transition-all duration-300",
           locale === "fr"
-            ? light
-              ? "text-brass-light"
-              : "text-brass"
+            ? "bg-brass text-navy"
             : light
-              ? "hover:text-cream"
-              : "hover:text-navy"
+              ? "text-cream/70 hover:text-cream"
+              : "text-navy/45 hover:text-navy"
         )}
         aria-pressed={locale === "fr"}
+        aria-label="Français"
       >
         FR
       </button>
-      <span className="opacity-40">/</span>
       <button
         type="button"
         onClick={() => switchTo("en")}
         className={cn(
-          "transition-colors duration-300",
+          "min-w-[2.5rem] px-3 py-1.5 transition-all duration-300",
           locale === "en"
-            ? light
-              ? "text-brass-light"
-              : "text-brass"
+            ? "bg-brass text-navy"
             : light
-              ? "hover:text-cream"
-              : "hover:text-navy"
+              ? "text-cream/70 hover:text-cream"
+              : "text-navy/45 hover:text-navy"
         )}
         aria-pressed={locale === "en"}
+        aria-label="English"
       >
         EN
       </button>

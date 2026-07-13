@@ -35,7 +35,6 @@ export function Header() {
           : "border-b border-transparent bg-transparent"
       )}
     >
-      {/* Thin gold crown line when scrolled */}
       <div
         className={cn(
           "h-px w-full bg-gradient-to-r from-transparent via-brass/60 to-transparent transition-opacity duration-700",
@@ -53,7 +52,7 @@ export function Header() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-11 lg:flex">
+        <nav className="hidden items-center gap-10 lg:flex">
           {links.map((link) => (
             <Link
               key={link.href}
@@ -64,38 +63,39 @@ export function Header() {
               <span className="absolute -bottom-1.5 left-1/2 h-px w-0 -translate-x-1/2 bg-brass transition-all duration-500 ease-luxury group-hover:w-full" />
             </Link>
           ))}
-          <div className="ml-2 h-3 w-px bg-brass/30" />
-          <LanguageSwitcher light />
         </nav>
 
-        <button
-          type="button"
-          className="relative z-10 flex h-10 w-10 items-center justify-center lg:hidden"
-          aria-label="Menu"
-          onClick={() => setOpen((v) => !v)}
-        >
-          <span className="sr-only">Menu</span>
-          <div className="flex w-6 flex-col gap-1.5">
-            <span
-              className={cn(
-                "h-px w-full bg-cream transition-transform duration-500 ease-luxury",
-                open && "translate-y-[3.5px] rotate-45"
-              )}
-            />
-            <span
-              className={cn(
-                "h-px w-full bg-brass transition-opacity duration-300",
-                open && "opacity-0"
-              )}
-            />
-            <span
-              className={cn(
-                "h-px w-full bg-cream transition-transform duration-500 ease-luxury",
-                open && "-translate-y-[3.5px] -rotate-45"
-              )}
-            />
-          </div>
-        </button>
+        <div className="relative z-10 flex items-center gap-3">
+          <LanguageSwitcher light />
+          <button
+            type="button"
+            className="flex h-10 w-10 items-center justify-center lg:hidden"
+            aria-label="Menu"
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span className="sr-only">Menu</span>
+            <div className="flex w-6 flex-col gap-1.5">
+              <span
+                className={cn(
+                  "h-px w-full bg-cream transition-transform duration-500 ease-luxury",
+                  open && "translate-y-[3.5px] rotate-45"
+                )}
+              />
+              <span
+                className={cn(
+                  "h-px w-full bg-brass transition-opacity duration-300",
+                  open && "opacity-0"
+                )}
+              />
+              <span
+                className={cn(
+                  "h-px w-full bg-cream transition-transform duration-500 ease-luxury",
+                  open && "-translate-y-[3.5px] -rotate-45"
+                )}
+              />
+            </div>
+          </button>
+        </div>
       </Container>
 
       <div
@@ -115,7 +115,6 @@ export function Header() {
               {link.label}
             </Link>
           ))}
-          <LanguageSwitcher light />
         </Container>
       </div>
     </header>
