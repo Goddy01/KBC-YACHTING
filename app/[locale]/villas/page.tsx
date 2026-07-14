@@ -23,9 +23,9 @@ export default async function VillasPage({ params: { locale } }: Props) {
   return (
     <>
       <PageHero eyebrow={t("eyebrow")} title={t("title")} subtitle={t("subtitle")} />
-      <section className="bg-cream py-16 md:py-24">
+      <section className="bg-cream py-10 sm:py-16 md:py-24">
         <Container>
-          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-8 sm:grid-cols-2 sm:gap-10 lg:grid-cols-3">
             {villas.map((villa, i) => (
               <SectionReveal key={villa.slug} delay={(i % 3) * 0.06}>
                 <ListingCard

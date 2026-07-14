@@ -23,9 +23,9 @@ export function Footer() {
     <footer className="relative border-t border-brass/15 bg-navy text-cream">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brass/50 to-transparent" />
 
-      <Container className="py-24 md:py-32">
-        <div className="mb-16 text-center">
-          <p className="font-display text-4xl font-medium tracking-[0.12em] md:text-5xl">
+      <Container className="py-16 sm:py-24 md:py-32">
+        <div className="mb-10 text-center sm:mb-16">
+          <p className="font-display text-3xl font-medium tracking-[0.12em] sm:text-4xl md:text-5xl">
             KBC
           </p>
           <p className="mt-2 text-[10px] uppercase tracking-royal text-brass-light">
@@ -37,8 +37,8 @@ export function Footer() {
           </p>
         </div>
 
-        <div className="grid gap-14 border-t border-brass/15 pt-14 sm:grid-cols-2 lg:grid-cols-12 lg:gap-10">
-          <div className="grid grid-cols-2 gap-10 sm:col-span-2 sm:grid-cols-3 lg:col-span-7">
+        <div className="grid gap-10 border-t border-brass/15 pt-10 sm:gap-14 sm:pt-14 sm:grid-cols-2 lg:grid-cols-12 lg:gap-10">
+          <div className="grid grid-cols-1 gap-8 min-[480px]:grid-cols-2 sm:col-span-2 sm:grid-cols-3 sm:gap-10 lg:col-span-7">
             <div>
               <p className="mb-5 text-[10px] uppercase tracking-royal text-brass">
                 {t("explore")}

@@ -42,22 +42,25 @@ export function Header() {
         )}
       />
 
-      <Container className="flex h-20 items-center justify-between md:h-24">
-        <Link href="/" className="group relative z-10 flex items-baseline gap-2.5">
-          <span className="font-display text-2xl font-medium tracking-[0.14em] text-cream md:text-[1.65rem]">
+      <Container className="flex h-16 items-center justify-between gap-3 sm:h-20 md:h-24">
+        <Link
+          href="/"
+          className="group relative z-10 flex min-w-0 shrink items-baseline gap-1.5 sm:gap-2.5"
+        >
+          <span className="font-display text-xl font-medium tracking-[0.14em] text-cream sm:text-2xl md:text-[1.65rem]">
             KBC
           </span>
-          <span className="font-sans text-[9px] uppercase tracking-[0.32em] text-brass-light/80 transition-colors duration-500 group-hover:text-brass-light md:text-[10px]">
+          <span className="hidden font-sans text-[9px] uppercase tracking-[0.32em] text-brass-light/80 transition-colors duration-500 group-hover:text-brass-light min-[400px]:inline sm:text-[10px]">
             Yachting
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-10 lg:flex">
+        <nav className="hidden items-center gap-8 xl:gap-10 lg:flex">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="group relative text-[10px] uppercase tracking-[0.22em] text-cream/75 transition-colors duration-500 hover:text-cream"
+              className="group relative whitespace-nowrap text-[10px] uppercase tracking-[0.22em] text-cream/75 transition-colors duration-500 hover:text-cream"
             >
               {link.label}
               <span className="absolute -bottom-1.5 left-1/2 h-px w-0 -translate-x-1/2 bg-brass transition-all duration-500 ease-luxury group-hover:w-full" />
@@ -65,7 +68,7 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="relative z-10 flex items-center gap-3">
+        <div className="relative z-10 flex shrink-0 items-center gap-2 sm:gap-3">
           <LanguageSwitcher light />
           <button
             type="button"
@@ -104,13 +107,13 @@ export function Header() {
           open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         )}
       >
-        <Container className="flex flex-col gap-7 py-10">
+        <Container className="flex flex-col gap-5 py-8 sm:gap-7 sm:py-10">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="font-display text-3xl font-medium text-cream"
+              className="font-display text-2xl font-medium text-cream sm:text-3xl"
             >
               {link.label}
             </Link>

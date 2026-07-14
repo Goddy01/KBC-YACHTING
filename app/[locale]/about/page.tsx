@@ -24,11 +24,11 @@ export default async function AboutPage({ params: { locale } }: Props) {
     <>
       <PageHero eyebrow={t("eyebrow")} title={t("title")} subtitle={t("subtitle")} />
 
-      <section className="bg-cream py-20 md:py-28">
+      <section className="bg-cream py-12 sm:py-20 md:py-28">
         <Container>
-          <div className="grid items-center gap-14 lg:grid-cols-2">
+          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
             <SectionReveal>
-              <div className="relative aspect-[4/5] overflow-hidden">
+              <div className="relative aspect-[4/5] max-h-[70vh] overflow-hidden sm:max-h-none">
                 <Image
                   src={siteImages.about}
                   alt=""
@@ -39,10 +39,10 @@ export default async function AboutPage({ params: { locale } }: Props) {
               </div>
             </SectionReveal>
             <SectionReveal delay={0.1}>
-              <h2 className="font-display text-3xl text-navy md:text-4xl">
+              <h2 className="font-display text-2xl text-navy sm:text-3xl md:text-4xl">
                 {t("storyTitle")}
               </h2>
-              <div className="mt-8 space-y-5 text-base leading-relaxed text-navy/65">
+              <div className="mt-6 space-y-4 text-sm leading-relaxed text-navy/65 sm:mt-8 sm:space-y-5 sm:text-base">
                 <p>{t("storyP1")}</p>
                 <p>{t("storyP2")}</p>
                 <p>{t("storyP3")}</p>
@@ -52,28 +52,28 @@ export default async function AboutPage({ params: { locale } }: Props) {
         </Container>
       </section>
 
-      <section className="bg-navy py-20 text-cream md:py-28">
+      <section className="bg-navy py-14 text-cream sm:py-20 md:py-28">
         <Container>
           <SectionReveal>
             <p className="text-[11px] uppercase tracking-[0.28em] text-brass">
               {t("presenceTitle")}
             </p>
-            <p className="mt-6 max-w-2xl font-display text-3xl leading-snug md:text-4xl">
+            <p className="mt-5 max-w-2xl font-display text-2xl leading-snug sm:mt-6 sm:text-3xl md:text-4xl">
               {t("presenceText")}
             </p>
           </SectionReveal>
         </Container>
       </section>
 
-      <section className="bg-cream py-20 md:py-28">
+      <section className="bg-cream py-12 sm:py-20 md:py-28">
         <Container>
           <SectionReveal>
-            <h2 className="font-display text-3xl text-navy md:text-4xl">
+            <h2 className="font-display text-2xl text-navy sm:text-3xl md:text-4xl">
               {t("teamTitle")}
             </h2>
             <p className="mt-4 text-navy/55">{t("teamSubtitle")}</p>
           </SectionReveal>
-          <div className="mt-14 grid gap-10 sm:grid-cols-3">
+          <div className="mt-10 grid gap-8 sm:mt-14 sm:grid-cols-2 sm:gap-10 lg:grid-cols-3">
             {team.map((member, i) => (
               <SectionReveal key={member.id} delay={i * 0.08}>
                 <div className="relative aspect-[3/4] overflow-hidden bg-navy/10">

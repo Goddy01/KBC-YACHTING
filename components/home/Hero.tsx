@@ -45,7 +45,7 @@ export function Hero() {
   return (
     <section
       ref={ref}
-      className="relative h-[100svh] min-h-[680px] overflow-hidden bg-navy"
+      className="relative h-[100svh] min-h-[520px] overflow-hidden bg-navy sm:min-h-[640px]"
     >
       <motion.div style={{ y, scale }} className="absolute inset-0">
         {/* Poster always underneath for LCP / reduced motion */}
@@ -82,7 +82,7 @@ export function Hero() {
 
       <motion.div
         style={{ opacity }}
-        className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center"
+        className="relative z-10 flex h-full flex-col items-center justify-center px-4 pb-16 text-center sm:px-6 sm:pb-20"
       >
         <motion.div
           initial={{ opacity: 0, scaleX: 0 }}
@@ -124,7 +124,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.95, ease }}
-          className="mt-8 max-w-lg font-display text-2xl font-normal italic leading-snug text-cream/90 md:text-3xl"
+          className="mt-6 max-w-lg px-2 font-display text-xl font-normal italic leading-snug text-cream/90 sm:mt-8 sm:text-2xl md:text-3xl"
         >
           {t("heroTagline")}
         </motion.p>
@@ -134,7 +134,7 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1, ease }}
-        className="absolute bottom-12 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-4"
+        className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-3 sm:bottom-12 sm:gap-4"
       >
         <span className="text-[10px] uppercase tracking-royal text-brass-light/70">
           {t("scrollCue")}

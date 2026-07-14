@@ -20,7 +20,7 @@ export default async function YachtsPage({ params: { locale } }: Props) {
   return (
     <>
       <PageHero eyebrow={t("eyebrow")} title={t("title")} subtitle={t("subtitle")} />
-      <section className="bg-cream py-16 md:py-24">
+      <section className="bg-cream py-10 sm:py-16 md:py-24">
         <Container>
           <Suspense fallback={null}>
             <YachtsListing />

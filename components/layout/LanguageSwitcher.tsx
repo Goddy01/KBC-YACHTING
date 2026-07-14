@@ -24,7 +24,7 @@ export function LanguageSwitcher({ light, className }: LanguageSwitcherProps) {
       role="group"
       aria-label="Language"
       className={cn(
-        "inline-flex items-center rounded-sm border p-0.5 text-[11px] uppercase tracking-[0.18em]",
+        "inline-flex shrink-0 items-center rounded-sm border p-0.5 text-[10px] uppercase tracking-[0.14em] sm:text-[11px] sm:tracking-[0.18em]",
         light ? "border-brass/50 bg-navy/40 backdrop-blur-sm" : "border-brass/40 bg-cream",
         className
       )}
@@ -33,7 +33,7 @@ export function LanguageSwitcher({ light, className }: LanguageSwitcherProps) {
         type="button"
         onClick={() => switchTo("fr")}
         className={cn(
-          "min-w-[2.5rem] px-3 py-1.5 transition-all duration-300",
+          "min-w-[2rem] px-2 py-1.5 transition-all duration-300 sm:min-w-[2.5rem] sm:px-3",
           locale === "fr"
             ? "bg-brass text-navy"
             : light
@@ -49,7 +49,7 @@ export function LanguageSwitcher({ light, className }: LanguageSwitcherProps) {
         type="button"
         onClick={() => switchTo("en")}
         className={cn(
-          "min-w-[2.5rem] px-3 py-1.5 transition-all duration-300",
+          "min-w-[2rem] px-2 py-1.5 transition-all duration-300 sm:min-w-[2.5rem] sm:px-3",
           locale === "en"
             ? "bg-brass text-navy"
             : light

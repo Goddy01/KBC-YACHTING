@@ -11,7 +11,7 @@ export function Testimonials() {
   const locale = useLocale() as "fr" | "en";
 
   return (
-    <section className="bg-cream py-28 md:py-36">
+    <section className="bg-cream py-16 sm:py-28 md:py-36">
       <Container>
         <SectionReveal>
           <div className="text-center">
@@ -19,23 +19,23 @@ export function Testimonials() {
               {t("testimonialsEyebrow")}
             </p>
             <Ornament className="mt-6 max-w-[6rem]" />
-            <h2 className="mt-6 font-display text-4xl font-medium text-navy md:text-5xl lg:text-6xl">
+            <h2 className="mt-6 font-display text-3xl font-medium text-navy sm:text-4xl md:text-5xl lg:text-6xl">
               {t("testimonialsTitle")}
             </h2>
           </div>
         </SectionReveal>
 
-        <div className="mt-20 grid gap-16 md:grid-cols-3 md:gap-12 lg:gap-16">
+        <div className="mt-12 grid gap-12 sm:mt-20 sm:gap-16 md:grid-cols-3 md:gap-12 lg:gap-16">
           {testimonials.map((item, i) => (
             <SectionReveal key={item.id} delay={i * 0.1}>
               <blockquote className="relative text-center md:text-left">
                 <span
-                  className="font-display text-6xl leading-none text-brass/35"
+                  className="font-display text-5xl leading-none text-brass/35 sm:text-6xl"
                   aria-hidden
                 >
                   “
                 </span>
-                <p className="-mt-6 font-display text-xl font-normal leading-relaxed text-navy md:text-2xl">
+                <p className="-mt-5 font-display text-lg font-normal leading-relaxed text-navy sm:-mt-6 sm:text-xl md:text-2xl">
                   {item.quote[locale]}
                 </p>
                 <div className="mx-auto mt-8 h-px w-10 bg-brass/50 md:mx-0" />

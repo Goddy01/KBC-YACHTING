@@ -58,7 +58,7 @@ export function FeaturedListings() {
   ].slice(0, 6);
 
   return (
-    <section className="relative bg-cream-muted/50 py-28 md:py-36">
+    <section className="relative bg-cream-muted/50 py-16 sm:py-28 md:py-36">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brass/40 to-transparent" />
       <Container>
         <SectionReveal>
@@ -67,7 +67,7 @@ export function FeaturedListings() {
               {t("featuredEyebrow")}
             </p>
             <Ornament className="mt-6 max-w-[6rem]" />
-            <h2 className="mt-6 font-display text-4xl font-medium text-navy md:text-5xl lg:text-6xl">
+            <h2 className="mt-6 font-display text-3xl font-medium text-navy sm:text-4xl md:text-5xl lg:text-6xl">
               {t("featuredTitle")}
             </h2>
             <p className="mx-auto mt-5 max-w-lg text-base text-navy/55">
@@ -76,7 +76,7 @@ export function FeaturedListings() {
           </div>
         </SectionReveal>
 
-        <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-14">
+        <div className="mt-10 grid gap-8 sm:mt-16 sm:grid-cols-2 sm:gap-10 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-14">
           {items.map((item, i) => (
             <SectionReveal key={item.key} delay={i * 0.08}>
               <ListingCard

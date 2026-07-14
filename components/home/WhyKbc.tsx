@@ -16,7 +16,7 @@ export function WhyKbc() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-navy py-28 text-cream md:py-36">
+    <section className="relative overflow-hidden bg-navy py-16 text-cream sm:py-28 md:py-36">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(201,168,108,0.07)_0%,transparent_50%)]" />
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brass/50 to-transparent" />
 
@@ -27,7 +27,7 @@ export function WhyKbc() {
               {t("whyEyebrow")}
             </p>
             <Ornament light className="mt-6 ml-0 max-w-[6rem]" />
-            <h2 className="mt-6 font-display text-4xl font-medium leading-tight md:text-5xl lg:text-6xl">
+            <h2 className="mt-6 font-display text-3xl font-medium leading-tight sm:text-4xl md:text-5xl lg:text-6xl">
               {t("whyTitle")}
             </h2>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-cream/55">
@@ -36,11 +36,11 @@ export function WhyKbc() {
           </div>
         </SectionReveal>
 
-        <div className="mt-20 grid gap-0 md:grid-cols-2">
+        <div className="mt-12 grid gap-0 sm:mt-20 md:grid-cols-2">
           {pillars.map((p, i) => (
             <SectionReveal key={p.num} delay={i * 0.08}>
               <div
-                className={`border-t border-brass/20 py-10 md:px-8 md:py-12 ${
+                className={`border-t border-brass/20 py-8 md:px-8 md:py-12 ${
                   i % 2 === 0 ? "md:border-r md:border-brass/20 md:pl-0" : ""
                 } ${i < 2 ? "md:border-b-0" : ""}`}
               >

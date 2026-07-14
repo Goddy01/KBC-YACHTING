@@ -34,7 +34,7 @@ export function YachtsListing() {
   return (
     <div>
       <FilterTabs options={options} value={filter} onChange={setFilter} />
-      <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-8 grid gap-8 sm:mt-12 sm:grid-cols-2 sm:gap-10 lg:grid-cols-3">
         {filtered.map((yacht, i) => (
           <SectionReveal key={yacht.slug} delay={(i % 3) * 0.06}>
             <ListingCard

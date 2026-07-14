@@ -46,12 +46,12 @@ export function ContactForm() {
 
   if (success) {
     return (
-      <div className="border border-brass/40 bg-cream-ivory px-8 py-20 text-center">
+      <div className="border border-brass/40 bg-cream-ivory px-5 py-14 text-center sm:px-8 sm:py-20">
         <div className="mx-auto mb-6 h-px w-12 bg-brass" />
-        <p className="font-display text-3xl font-medium text-navy md:text-4xl">
+        <p className="font-display text-2xl font-medium text-navy sm:text-3xl md:text-4xl">
           {t("formSuccessTitle")}
         </p>
-        <p className="mt-5 text-navy/55">{t("formSuccessText")}</p>
+        <p className="mt-5 text-sm text-navy/55 sm:text-base">{t("formSuccessText")}</p>
       </div>
     );
   }
@@ -132,7 +132,12 @@ export function ContactForm() {
           <p className="mt-1 text-xs text-red-600">{errors.message}</p>
         )}
       </div>
-      <Button type="submit" variant="gold" disabled={sending}>
+      <Button
+        type="submit"
+        variant="gold"
+        disabled={sending}
+        className="w-full sm:w-auto"
+      >
         {sending ? t("formSending") : t("formSubmit")}
       </Button>
     </form>
