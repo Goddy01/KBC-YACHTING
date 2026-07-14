@@ -1,5 +1,7 @@
 export const siteImages = {
   hero: "/images/hero-poster.webp",
+  /** 1200×630 social share thumbnail (WhatsApp, LinkedIn, etc.) */
+  og: "/images/og.jpg",
   heroVideoWebm: "/videos/hero.webm",
   heroVideoMp4: "/videos/hero.mp4",
   categoryYachts:

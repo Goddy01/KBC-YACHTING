@@ -16,6 +16,8 @@ export type YachtListing = {
   featured: boolean;
   hasDetailPage: boolean;
   images: string[];
+  /** Optional JPG for WhatsApp/social previews (prefer over WebP). */
+  ogImage?: string;
   description: { fr: string; en: string };
   specs: {
     key: string;
@@ -43,6 +45,7 @@ export const yachts: YachtListing[] = [
     currency: "EUR",
     featured: true,
     hasDetailPage: true,
+    ogImage: "/images/og-cheoy-lee.jpg",
     images: [
       "/images/boats/cheoy-lee/1.webp",
       "/images/boats/cheoy-lee/2.webp",

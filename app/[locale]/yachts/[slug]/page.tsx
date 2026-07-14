@@ -1,4 +1,5 @@
 import Image from "next/image";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
@@ -7,6 +8,7 @@ import { Gallery } from "@/components/listings/Gallery";
 import { SpecsTable } from "@/components/listings/SpecsTable";
 import { SectionReveal } from "@/components/ui/SectionReveal";
 import { getYachtBySlug, formatPrice, yachts } from "@/data/yachts";
+import { SITE_NAME } from "@/lib/site";
 
 type Props = {
   params: { locale: string; slug: string };
@@ -20,9 +22,41 @@ export function generateStaticParams() {
     );
 }
 
-export async function generateMetadata({ params: { slug } }: Props) {
+export async function generateMetadata({
+  params: { locale, slug },
+}: Props): Promise<Metadata> {
   const yacht = getYachtBySlug(slug);
-  return { title: yacht ? `${yacht.name} · KBC Yachting` : "KBC Yachting" };
+  if (!yacht) return { title: SITE_NAME };
+
+  const loc = locale as "fr" | "en";
+  const title = yacht.name;
+  const description = yacht.description[loc];
+  const image = yacht.ogImage ?? yacht.images[0];
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title: `${title} · ${SITE_NAME}`,
+      description,
+      type: "website",
+      url: `/${locale}/yachts/${slug}`,
+      images: [
+        {
+          url: image,
+          width: 1200,
+          height: 800,
+          alt: yacht.name,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} · ${SITE_NAME}`,
+      description,
+      images: [image],
+    },
+  };
 }
 
 export default async function YachtDetailPage({
